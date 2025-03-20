@@ -1,0 +1,29 @@
+[
+  {
+    "name": "YouTube",
+    "description": "Descarga videos o el audio de tus videos favoritos.",
+    "slug": "yt",
+    "image": {
+      "filename": "/src/assets/images/logos/youtube.svg",
+      "alt": "YouTube Logo"
+    }
+  },
+  {
+    "name": "TikTok",
+    "description": "Descarga videos o el audio de tus videos favoritos.",
+    "slug": "tk",
+    "image": {
+      "filename": "/src/assets/images/logos/tiktok.png",
+      "alt": "TikTok Logo"
+    }
+  },
+  {
+    "name": "Instagram",
+    "description": "Descarga videos o el audio de tus videos favoritos.",
+    "slug": "ig",
+    "image": {
+      "filename": "/src/assets/images/logos/instagram.png",
+      "alt": "Instagram Logo"
+    }
+  }
+]

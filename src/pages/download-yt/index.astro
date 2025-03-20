@@ -1,0 +1,106 @@
+---
+import Layout from "@layouts/Layout.astro";
+import App from "@components/App.astro";
+import YoutubeLogo from "@assets/images/logos/youtube.svg";
+import { Image } from "astro:assets";
+
+const platform: string = "Youtube";
+
+type Result = {
+    title: string;
+    thumbnail: string;
+    duration: string;
+    format: string;
+}
+
+const results: Result[] = [];
+---
+
+<Layout>
+    <App>
+        <div class="flex flex-col items-center justify-center w-full">
+            <div class="my-10">
+                <Image src={YoutubeLogo} alt="Youtube" height="50" />
+            </div>
+
+            <div class="max-w-2xl">
+                <form>
+                    <div class="flex flex-col items-center justify-center">
+                        <h2 class="text-base sm:text-lg/7 font-semibold text-gray-900 text-center">
+                            Descarga el video o el audio de un video de {platform}
+                        </h2>
+                        <p class="mt-1 text-sm sm:text-base/6 text-gray-600 text-center">
+                            Ingresa el link del video de {platform} y selecciona el formato que deseas descargar.
+                        </p>
+
+                        <div class="mt-10 grid grid-cols-8 gap-2 w-full">
+                            <div class="col-span-6 sm:col-span-5">
+                                <label
+                                    for="link"
+                                    class="block text-sm sm:text-base/6 font-medium text-gray-900"
+                                    >Enlace del video</label
+                                >
+                                <div class="">
+                                    <input
+                                        id="link"
+                                        name="link"
+                                        type="text"
+                                        autocomplete="link"
+                                        placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                                        class="block w-full rounded-md bg-white px-3 py-1.5 text-sm sm:text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="col-span-2 sm:col-span-1">
+                                <label
+                                    for="format"
+                                    class="block text-sm sm:text-base/6 font-medium text-gray-900"
+                                    >Formato</label
+                                >
+                                <div class="grid grid-cols-1">
+                                    <select
+                                        id="format"
+                                        name="format"
+                                        autocomplete="format-name"
+                                        class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-sm sm:text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                                    >
+                                        <option>MP3</option>
+                                        <option>MP4</option>
+                                    </select>
+                                    <svg
+                                        class="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-500 sm:size-4"
+                                        viewBox="0 0 16 16"
+                                        fill="currentColor"
+                                        aria-hidden="true"
+                                        data-slot="icon"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="col-span-8 sm:col-span-2 flex items-end">
+                                <button
+                                    type="submit"
+                                    class="rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-red-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 w-full"
+                                    >Buscar</button
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                {results.map((result) => (
+                    <div class="flex flex-col items-center justify-center">
+                        <h2 class="text-base sm:text-lg/7 font-semibold text-gray-900 text-center">
+                            {result.title}
+                        </h2>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </App>
+</Layout>
